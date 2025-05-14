@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import CodeEditor from "./components/CodeEditor";
 import PreviewPane from "./components/PreviewPane";
+import { themeContext } from "./context/ThemeContext";
 
 function App() {
-  // const [toggleTheme, theme] =  useContext();
+  const { theme, toggleTheme } = useContext(themeContext)
 
   const getSavedContent = (key, defaultValue) => {
     const savedContent = localStorage.getItem(key);
@@ -93,10 +94,9 @@ function App() {
         <div className="space-x-4">
           <button
             className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-r hover:from-indigo-600 hover:to-blue-500 transition-all duration-300"
-            // onClick={toggleTheme}
+            onClick={toggleTheme}
           >
-            {/* {theme === "dark" ? "☀ Light" : "🌙 dark"} */}
-            Dark Theme
+            {theme === "dark" ? " 🌙 Dark Mode" : " ☀ Light Mode"}
           </button>
           <button
             className="bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-red-700 transition-all duration-300"
