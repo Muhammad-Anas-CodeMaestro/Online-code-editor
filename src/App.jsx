@@ -88,12 +88,12 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
-      <header className="p-4 bg-gray-800 dark:bg-gray-700 text-white flex justify-between items-center">
+    <div className={`h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}>
+      <header className={`p-4 ${theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-700 border border-b-gray-700"} flex justify-between items-center`}>
         <h1 className="text-xl font-bold">Online Code Editor</h1>
         <div className="space-x-4">
           <button
-            className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-r hover:from-indigo-600 hover:to-blue-500 transition-all duration-300"
+            className={`${theme === 'dark' ? "from-blue-500 to-indigo-600" : "from-indigo-950 to-blue-500"} bg-gradient-to-r text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-r  transition-all duration-300`}
             onClick={toggleTheme}
           >
             {theme === "dark" ? " 🌙 Dark Mode" : " ☀ Light Mode"}
